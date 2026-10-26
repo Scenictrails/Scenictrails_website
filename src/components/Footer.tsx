@@ -1,4 +1,5 @@
 import React from 'react';
+import { buildEmailComposeUrl } from '../contexts/BookingContext';
 import { siteConfig } from '../data/siteConfig';
 import { Icon } from './Icon';
 
@@ -29,7 +30,9 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                 <a
-                  href={`mailto:${brand.email}`}
+                  href={buildEmailComposeUrl(brand.email)}
+                  target="_blank"
+                  rel="noreferrer"
                   className="transition-colors duration-150 ease-out hover:text-gold">
                   
                   {brand.email}

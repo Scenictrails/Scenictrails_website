@@ -47,8 +47,8 @@ export const siteConfig = {
     name: 'Scenic Trails',
     blurb:
     'A two-person outfit running small, unhurried trips around Ella — sunrise on the rock, and the rest of the hill country at your own pace.',
-    phone: '+94 77 124 4422',
-    email: 'hello@scenictrails.lk',
+    phone: '+94 71 277 5437',
+    email: 'scenictrails.explore@gmail.com',
     address: 'Ella, Sri Lanka'
   },
 

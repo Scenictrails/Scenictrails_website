@@ -43,12 +43,20 @@ export function useBooking(): BookingSelection {
   return context;
 }
 
+/** Builds a browser-safe email compose URL for the owner. */
+export function buildEmailComposeUrl(email: string, subject?: string, body?: string): string {
+  const params = new URLSearchParams();
+  params.set('to', email);
+  if (subject) params.set('su', subject);
+  if (body) params.set('body', body);
+
+  return `https://mail.google.com/mail/?view=cm&fs=1&${params.toString()}`;
+}
+
 /** Builds an encoded mailto: link to the owner for a booking request. */
 export function buildBookingMailto(subject: string, bodyLines: string[]): string {
   const body = [...bodyLines, '', 'Could you please confirm availability for this booking?'].join(
     '\n'
   );
-  return `mailto:${siteConfig.brand.email}?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`;
+  return buildEmailComposeUrl(siteConfig.brand.email, subject, body);
 }
